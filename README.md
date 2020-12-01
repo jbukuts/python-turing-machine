@@ -59,7 +59,17 @@ Simply change the path to any text file you like. Of course, these can be combin
 | RETURNLEFT  | RETURNLEFT,0,L  | RETURNLEFT,1,R  | ENDSTATE,b,R   |
 
 ### Decrement
-|          |                                                                                  |
+|          | Subprocesses                                                                     |
 |----------|----------------------------------------------------------------------------------|
 | ONESCOMP | Execute one's complement machine. Upon completion switch to increment subprocess |
 | INCREM   | After executing transtion to one's complement subprocess                         |
+
+### Palindrome
+|             | 0               | 1               | b               |
+|-------------|-----------------|-----------------|-----------------|
+| SEARCHSTATE | MOVEENDZERO,b,R | MOVEENDONE,b,R  | ENDSTATE,b,R    |
+| MOVEENDZERO | MOVEENDZER0,0,R | MOVEENDZERO,1,R | CHECKZERO,b,L   |
+| MOVEENDONE  | MOVEENDONE,0,R  | MOVEENDONE,1,R  | CHECKONE,b,L    |
+| CHECKZERO   | RETURNSTART,b,L | FAILSTATE,1,L   | ENDSTATE,b,L    |
+| CHECKONE    | FAILSTATE,0,L   | RETURNSTART,b,L | ENDSTATE,b,L    |
+| RETURNSTART | RETURNSTART,0,L | RETURNSTATE,1,L | SEARCHSTATE,b,R |
