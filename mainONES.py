@@ -24,16 +24,18 @@ def main(which, infilename):
     thistm.read(which)
     infile = open(infilename)
     for line in infile:
-        print("START "+which)
-        print("***********************************************************************")
+        startString = "\nSTART "+which+'\n***********************************************************************'
+        printoutput(startString, config.LOGFILE)
         
         line = line.strip()
         tape = list(line)
         tapeheadpos = 1
         tape = thistm.execute(tape, tapeheadpos)
 
-        print("FINAL "+which+" STATE REACHED, HALT AND ACCEPT")
-        print("***********************************************************************\n")
+        endString = "FINAL "+which+" STATE REACHED, HALT AND ACCEPT "
+        endString += thistm.getEndTape()
+        endString += "\n***********************************************************************\n"
+        printoutput(endString, config.LOGFILE)
     infile.close()
 
     logstring = dabtimer.timecall('ENDING')

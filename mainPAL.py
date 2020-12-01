@@ -34,7 +34,7 @@ def main(which, infilename):
 
         finalState = thistm.getFinalState()
         endString = "FINAL "+which+" STATE REACHED, HALT AND ACCEPT " if finalState != 'FAILSTATE' else "FAILURE "+which+" STATE REACHED, HALT AND REJECT "
-        endString += line
+        endString += thistm.getEndTape()
         endString += "\n***********************************************************************\n"
         printoutput(endString, config.LOGFILE)
 

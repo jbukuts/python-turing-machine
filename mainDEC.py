@@ -26,8 +26,8 @@ def main(which, infilename):
 
     infile = open(infilename)
     for line in infile:
-        print("START "+which)
-        print("***********************************************************************")
+        startString = "\nSTART "+which+'\n***********************************************************************'
+        printoutput(startString, config.LOGFILE)
 
         line = line.strip()
         tape = list(line)
@@ -40,8 +40,10 @@ def main(which, infilename):
 
         thistm.step = 0
 
-        print("FINAL "+which+" STATE REACHED, HALT AND ACCEPT")
-        print("**********************************************************************")
+        endString = "FINAL "+which+" STATE REACHED, HALT AND ACCEPT "
+        endString += thistm.getEndTape()
+        endString += "\n***********************************************************************\n"
+        printoutput(endString, config.LOGFILE)
 
     infile.close()
 

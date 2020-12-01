@@ -1,33 +1,33 @@
 OPTIONS Namespace(c=None, infilename='xinputPAL.txt', logfilename='zlogPAL.txt', which='PALINDROME')
 TIME*******************************************************************
 TIME BEGINNING            100.000       0.000 user        0.000 wall
-TIME BEGINNING                          0.031 user_t      0.000 wall_t
+TIME BEGINNING                          0.047 user_t      0.000 wall_t
 TIME*******************************************************************
 
 START PALINDROME
 ***********************************************************************
-FAILURE PALINDROME STATE REACHED, HALT AND REJECT b10bbbbbbbbbbbbbbbbbbb
+FAILURE PALINDROME STATE REACHED, HALT AND REJECT b b 0 b b b b b b b b b b b b b b b b b b b 
 ***********************************************************************
 
 
 START PALINDROME
 ***********************************************************************
-FINAL PALINDROME STATE REACHED, HALT AND ACCEPT b101bbbbbbbbbbbbbbbbbb
+FINAL PALINDROME STATE REACHED, HALT AND ACCEPT b b b b b b b b b b b b b b b b b b b b b b 
 ***********************************************************************
 
 
 START PALINDROME
 ***********************************************************************
-FINAL PALINDROME STATE REACHED, HALT AND ACCEPT b1111bbbbbbbbbbbbbbbbb
+FINAL PALINDROME STATE REACHED, HALT AND ACCEPT b b b b b b b b b b b b b b b b b b b b b b 
 ***********************************************************************
 
 
 START PALINDROME
 ***********************************************************************
-FAILURE PALINDROME STATE REACHED, HALT AND REJECT b1011010101101010bbbbb
+FAILURE PALINDROME STATE REACHED, HALT AND REJECT b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
 ***********************************************************************
 
 TIME*******************************************************************
 TIME ENDING                 0.000       0.000 user        0.001 wall
-TIME ENDING                             0.031 user_t      0.001 wall_t
+TIME ENDING                             0.047 user_t      0.001 wall_t
 TIME*******************************************************************
