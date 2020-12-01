@@ -1,0 +1,272 @@
+OPTIONS Namespace(c=None, infilename='xinputPAL.txt', logfilename='zlogPAL.txt', which='PALINDROME')
+TIME*******************************************************************
+TIME BEGINNING            100.000       0.000 user        0.000 wall
+TIME BEGINNING                          0.031 user_t      0.000 wall_t
+TIME*******************************************************************
+SEARCHSTATE	0	MOVEENDZERO	b	R
+
+SEARCHSTATE	1	MOVEENDONE	b	R
+
+MOVEENDZERO	0	MOVEENDZERO	0	R
+
+MOVEENDZERO	1	MOVEENDZERO	0	R
+
+MOVEENDZERO	b	CHECKZERO	b	L
+
+MOVEENDONE	0	MOVEENDONE	0	R
+
+MOVEENDONE	1	MOVEENDONE	1	R
+
+MOVEENDONE	b	CHECKONE	b	L
+
+CHECKZERO	0	RETURNSTART	b	L
+
+CHECKZERO	1	FAILSTATE	1	L
+
+CHECKZERO	b	ENDSTATE	b	L
+
+CHECKONE	0	FAILSTATE	0	L
+
+CHECKONE	1	RETURNSTART	b	L
+
+CHECKONE	b	ENDSTATE	b	L
+
+RETURNSTART	0	RETURNSTART	0	L
+
+RETURNSTART	1	RETURNSTART	1	L
+
+RETURNSTART	b	SEARCHSTATE	b	R
+
+SEARCHSTATE	b	ENDSTATE	b	R
+
+START PALINDROME
+***********************************************************************
+STEP:	0	STATE: SEARCHSTATE
+POS:	  *
+TAPE:	b 1 0 b b b b b b b b b b b b b b b b b b b 
+
+STEP:	1	STATE: MOVEENDONE
+POS:	    *
+TAPE:	b b 0 b b b b b b b b b b b b b b b b b b b 
+
+STEP:	2	STATE: MOVEENDONE
+POS:	      *
+TAPE:	b b 0 b b b b b b b b b b b b b b b b b b b 
+
+STEP:	3	STATE: CHECKONE
+POS:	    *
+TAPE:	b b 0 b b b b b b b b b b b b b b b b b b b 
+
+STEP:	4	STATE: FAILSTATE
+POS:	  *
+TAPE:	b b 0 b b b b b b b b b b b b b b b b b b b 
+
+FAILURE PALINDROME STATE REACHED, HALT AND REJECT b10bbbbbbbbbbbbbbbbbbb
+***********************************************************************
+
+
+START PALINDROME
+***********************************************************************
+STEP:	4	STATE: SEARCHSTATE
+POS:	  *
+TAPE:	b 1 0 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	5	STATE: MOVEENDONE
+POS:	    *
+TAPE:	b b 0 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	6	STATE: MOVEENDONE
+POS:	      *
+TAPE:	b b 0 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	7	STATE: MOVEENDONE
+POS:	        *
+TAPE:	b b 0 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	8	STATE: CHECKONE
+POS:	      *
+TAPE:	b b 0 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	9	STATE: RETURNSTART
+POS:	    *
+TAPE:	b b 0 b b b b b b b b b b b b b b b b b b b 
+
+STEP:	10	STATE: RETURNSTART
+POS:	  *
+TAPE:	b b 0 b b b b b b b b b b b b b b b b b b b 
+
+STEP:	11	STATE: SEARCHSTATE
+POS:	    *
+TAPE:	b b 0 b b b b b b b b b b b b b b b b b b b 
+
+STEP:	12	STATE: MOVEENDZERO
+POS:	      *
+TAPE:	b b b b b b b b b b b b b b b b b b b b b b 
+
+STEP:	13	STATE: CHECKZERO
+POS:	    *
+TAPE:	b b b b b b b b b b b b b b b b b b b b b b 
+
+STEP:	14	STATE: ENDSTATE
+POS:	  *
+TAPE:	b b b b b b b b b b b b b b b b b b b b b b 
+
+FINAL PALINDROME STATE REACHED, HALT AND ACCEPT b101bbbbbbbbbbbbbbbbbb
+***********************************************************************
+
+
+START PALINDROME
+***********************************************************************
+STEP:	14	STATE: SEARCHSTATE
+POS:	  *
+TAPE:	b 1 1 1 1 b b b b b b b b b b b b b b b b b 
+
+STEP:	15	STATE: MOVEENDONE
+POS:	    *
+TAPE:	b b 1 1 1 b b b b b b b b b b b b b b b b b 
+
+STEP:	16	STATE: MOVEENDONE
+POS:	      *
+TAPE:	b b 1 1 1 b b b b b b b b b b b b b b b b b 
+
+STEP:	17	STATE: MOVEENDONE
+POS:	        *
+TAPE:	b b 1 1 1 b b b b b b b b b b b b b b b b b 
+
+STEP:	18	STATE: MOVEENDONE
+POS:	          *
+TAPE:	b b 1 1 1 b b b b b b b b b b b b b b b b b 
+
+STEP:	19	STATE: CHECKONE
+POS:	        *
+TAPE:	b b 1 1 1 b b b b b b b b b b b b b b b b b 
+
+STEP:	20	STATE: RETURNSTART
+POS:	      *
+TAPE:	b b 1 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	21	STATE: RETURNSTART
+POS:	    *
+TAPE:	b b 1 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	22	STATE: RETURNSTART
+POS:	  *
+TAPE:	b b 1 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	23	STATE: SEARCHSTATE
+POS:	    *
+TAPE:	b b 1 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	24	STATE: MOVEENDONE
+POS:	      *
+TAPE:	b b b 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	25	STATE: MOVEENDONE
+POS:	        *
+TAPE:	b b b 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	26	STATE: CHECKONE
+POS:	      *
+TAPE:	b b b 1 b b b b b b b b b b b b b b b b b b 
+
+STEP:	27	STATE: RETURNSTART
+POS:	    *
+TAPE:	b b b b b b b b b b b b b b b b b b b b b b 
+
+STEP:	28	STATE: SEARCHSTATE
+POS:	      *
+TAPE:	b b b b b b b b b b b b b b b b b b b b b b 
+
+STEP:	29	STATE: ENDSTATE
+POS:	        *
+TAPE:	b b b b b b b b b b b b b b b b b b b b b b 
+
+FINAL PALINDROME STATE REACHED, HALT AND ACCEPT b1111bbbbbbbbbbbbbbbbb
+***********************************************************************
+
+
+START PALINDROME
+***********************************************************************
+STEP:	29	STATE: SEARCHSTATE
+POS:	  *
+TAPE:	b 1 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	30	STATE: MOVEENDONE
+POS:	    *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	31	STATE: MOVEENDONE
+POS:	      *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	32	STATE: MOVEENDONE
+POS:	        *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	33	STATE: MOVEENDONE
+POS:	          *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	34	STATE: MOVEENDONE
+POS:	            *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	35	STATE: MOVEENDONE
+POS:	              *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	36	STATE: MOVEENDONE
+POS:	                *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	37	STATE: MOVEENDONE
+POS:	                  *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	38	STATE: MOVEENDONE
+POS:	                    *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	39	STATE: MOVEENDONE
+POS:	                      *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	40	STATE: MOVEENDONE
+POS:	                        *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	41	STATE: MOVEENDONE
+POS:	                          *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	42	STATE: MOVEENDONE
+POS:	                            *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	43	STATE: MOVEENDONE
+POS:	                              *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	44	STATE: MOVEENDONE
+POS:	                                *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	45	STATE: MOVEENDONE
+POS:	                                  *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	46	STATE: CHECKONE
+POS:	                                *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+STEP:	47	STATE: FAILSTATE
+POS:	                              *
+TAPE:	b b 0 1 1 0 1 0 1 0 1 1 0 1 0 1 0 b b b b b 
+
+FAILURE PALINDROME STATE REACHED, HALT AND REJECT b1011010101101010bbbbb
+***********************************************************************
+
+TIME*******************************************************************
+TIME ENDING                 0.000       0.000 user        0.001 wall
+TIME ENDING                             0.031 user_t      0.001 wall_t
+TIME*******************************************************************

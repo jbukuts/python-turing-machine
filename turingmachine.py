@@ -21,6 +21,7 @@ class TM:
 
         self.startState = re.split(r'\t+', startstate.rstrip('\t'))[0]
         self.endState = re.split(r'\t+', endstate.rstrip('\t'))[2]
+        self.failState = 'FAILSTATE'
 
         # print("START: "+self.currState)
         # print("END: "+self.endState)
@@ -59,13 +60,19 @@ class TM:
         tmfile.close()
         #print(self.states)
         
+    def getFinalState(self):
+        return self.currState
+
     # this will execute the input tm on the input tape from a file
     # returned is the tape after the execution
     def execute(self, tape, tapeheadpos):
         self.currState = self.startState
 
+        tapeString = ""
+        posString = ""
+
         # execution loop
-        while self.currState != self.endState:
+        while self.currState != self.endState and self.currState != self.failState:
 
             # create the output string
             tapeString = ""
@@ -94,6 +101,19 @@ class TM:
 
             # on to the next
             self.step += 1
+
+        tapeString = ""
+        posString = ""
+        for space in range(tapeheadpos):
+                posString += "  "
+        posString += "*"
+        for letter in tape:
+            tapeString += letter + " "
+
+        # print to standard output
+        print("STEP:\t"+str(self.step)+"\tSTATE: "+self.currState)
+        print("POS:\t"+posString)
+        print("TAPE:\t"+tapeString+"\n")
 
         # return the tape
         return tape

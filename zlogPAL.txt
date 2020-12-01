@@ -1,0 +1,33 @@
+OPTIONS Namespace(c=None, infilename='xinputPAL.txt', logfilename='zlogPAL.txt', which='PALINDROME')
+TIME*******************************************************************
+TIME BEGINNING            100.000       0.000 user        0.000 wall
+TIME BEGINNING                          0.031 user_t      0.000 wall_t
+TIME*******************************************************************
+
+START PALINDROME
+***********************************************************************
+FAILURE PALINDROME STATE REACHED, HALT AND REJECT b10bbbbbbbbbbbbbbbbbbb
+***********************************************************************
+
+
+START PALINDROME
+***********************************************************************
+FINAL PALINDROME STATE REACHED, HALT AND ACCEPT b101bbbbbbbbbbbbbbbbbb
+***********************************************************************
+
+
+START PALINDROME
+***********************************************************************
+FINAL PALINDROME STATE REACHED, HALT AND ACCEPT b1111bbbbbbbbbbbbbbbbb
+***********************************************************************
+
+
+START PALINDROME
+***********************************************************************
+FAILURE PALINDROME STATE REACHED, HALT AND REJECT b1011010101101010bbbbb
+***********************************************************************
+
+TIME*******************************************************************
+TIME ENDING                 0.000       0.000 user        0.001 wall
+TIME ENDING                             0.031 user_t      0.001 wall_t
+TIME*******************************************************************

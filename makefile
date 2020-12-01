@@ -1,6 +1,7 @@
 ONES-INPUT=xinputONES.txt
 INC-INPUT=xinputINC.txt
 DEC-INPUT=xinputDEC.txt
+PAL-INPUT=xinputPAL.txt
 
 run-all: \
 	clean \
@@ -16,6 +17,9 @@ run-inc:
 
 run-dec:
 	python3 mainDEC.py -w DECREMENT -i $(DEC-INPUT) -l zlogDEC.txt >zoutputDEC.txt
+
+run-pal:
+	python3 mainPAL.py -w PALINDROME -i $(PAL-INPUT) -l zlogPAL.txt >zoutputPAL.txt
 
 clean:
 	find  . -name 'z*.txt' -exec rm {} \;
