@@ -8,6 +8,8 @@ class TM:
     # reads from turing machine txt file to create state dictionary
     # for machines to execute
     def read(self, name):
+        # based on input instruction different machine
+        # file is read
         filename = "tm_"+name+".txt"
         tmfile = open(filename)
 
@@ -19,12 +21,12 @@ class TM:
             for endstate in file:
                 pass
 
+        # store these states for the machine
         self.startState = re.split(r'\t+', startstate.rstrip('\t'))[0]
         self.endState = re.split(r'\t+', endstate.rstrip('\t'))[2]
         self.failState = 'FAILSTATE'
 
-        # print("START: "+self.currState)
-        # print("END: "+self.endState)
+        # state dictionary
         self.states = {}
 
         # iterate over the file
@@ -43,26 +45,23 @@ class TM:
             # if read state not yet in dict
             # add it
             if fromState not in self.states.keys():
-                self.states[fromState] = ("", [], "", "")
+                self.states[fromState] = ["", [], "", ""]
 
-            # tuples are immutable
-            # convert to list
-            tempState = list(self.states[fromState])
+            # put state transitions into the dictionary
+            self.states[fromState][0] += input
+            self.states[fromState][1].append(toState)
+            self.states[fromState][2] += move
+            self.states[fromState][3] += write
 
-            # end values in the list
-            tempState[0] += input
-            tempState[1].append(toState)
-            tempState[2] += move
-            tempState[3] += write
-
-            # and back into tuple
-            self.states[fromState] = tuple(tempState)
         tmfile.close()
-        #print(self.states)
         
+    # returns state of the machine
+    # to be called after the execution
     def getFinalState(self):
         return self.currState
 
+    # gets the tape of the machine
+    # to be called after execution
     def getEndTape(self):
         return "".join([c+" " for c in self.finaltape])
 
@@ -71,13 +70,11 @@ class TM:
     def execute(self, tape, tapeheadpos):
         self.currState = self.startState
 
-        tapeString = ""
-        posString = ""
-
         # execution loop
+        # runs while not in final accepting and rejecting state
         while self.currState != self.endState and self.currState != self.failState:
 
-            # create the output string
+            # list comprehension to print output
             tapeString = "".join([l+" " for l in tape])
             posString = "".join(["  " for i in range(tapeheadpos)]) + '*'
             
@@ -100,6 +97,7 @@ class TM:
             # on to the next
             self.step += 1
 
+        # list comprehension to print output
         tapeString = "".join([l+" " for l in tape])
         posString = "".join([" " for i in range(tapeheadpos)]) + '*'
 
