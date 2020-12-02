@@ -2,12 +2,14 @@ ONES-INPUT=xinputONES.txt
 INC-INPUT=xinputINC.txt
 DEC-INPUT=xinputDEC.txt
 PAL-INPUT=xinputPAL.txt
+DIV-INPUT=xinputDIV.txt
 
 run-all: \
 	clean \
 	run-ones \
 	run-inc \
 	run-dec \
+	run-div \
 
 run-ones:
 	python3 mainONES.py -w ONES -i $(ONES-INPUT) -l zlogONES.txt >zoutputONES.txt
@@ -20,6 +22,9 @@ run-dec:
 
 run-pal:
 	python3 mainPAL.py -w PALINDROME -i $(PAL-INPUT) -l zlogPAL.txt >zoutputPAL.txt
+
+run-div:
+	python3 mainDIV.py -w DIVISIBLE -i $(DIV-INPUT) -l zlogDIV.txt >zoutputDIV.txt
 
 clean:
 	find  . -name 'z*.txt' -exec rm {} \;

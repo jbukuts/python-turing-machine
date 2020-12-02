@@ -27,7 +27,8 @@ def main(which, infilename):
     # for each line in the input file execute tm
     infile = open(infilename)
     for line in infile:
-        startString = "\nSTART "+which+'\n***********************************************************************'
+        linespace = "".join([c+" " for c in line])
+        startString = "\nSTART "+which+': '+linespace+'\n***********************************************************************'
         printoutput(startString, config.LOGFILE)
 
         line = line.strip()

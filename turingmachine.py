@@ -99,7 +99,7 @@ class TM:
 
         # list comprehension to print output
         tapeString = "".join([l+" " for l in tape])
-        posString = "".join([" " for i in range(tapeheadpos)]) + '*'
+        posString = "".join(["  " for i in range(tapeheadpos)]) + '*'
 
         # print to standard output
         print("STEP:\t"+str(self.step)+"\tSTATE: "+self.currState)
