@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[ $(pip3 freeze | grep configargparse) ]]
+if [[ $(pip3 freeze | grep -i configargparse) ]]
 then
-	echo "installed"
+	echo "configargparse already installed. skipping."
 else
 	pip3 install configargparse
 fi

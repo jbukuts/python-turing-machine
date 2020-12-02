@@ -6,6 +6,7 @@ Here is a list of the implemented functions
 - Decrement
 - One's Complement
 - Palindrome Checker
+- Divisble by Three
 
 ## How these machines work
 
@@ -33,6 +34,8 @@ A makefile is provided to allow for easy testing. There are a couple rules you c
   - Runs only the decrement machine
 - `make run-pal`
   - Runs only the palindrome machine
+- `make run-div`
+  - Runs only the divisible by 3 machine
 - `make clean`
   - Deletes all .pyc and generated output files
 
@@ -42,8 +45,21 @@ Running `make` will execute each rule using my own supplied test files as the de
 - `make INC-INPUT="xinputINC.txt"`
 - `make DEC-INPUT="xinputDEC.txt"`
 - `make PAL-INPUT="xinputPAL.txt"`
+- `make DIV-INPUT="xinputDIV.txt"`
 
 Simply change the path to any text file you like. Of course, these can be combined with the other make rules and multiple can be changed at once when running the command.
+
+When running the makefile it will also run a bash script that I've included (`setup.sh`). All this script does is check to see whether a needed dependency, `configargparse`, is installed. If not the script simply runs `pip3 install configargparse`.
+
+Lastly, I have tested this makefile on a linux lab machine and there seems to be no problems using the makefile when it comes to installing modules through pip. Assuming your python 3 alias is `python3` and `pip3` is installed.
+
+## Interpreting output
+
+Outout from executing the makefile is seperated into two file, them being `zlog*.txt` and `zoutput*.txt` files. The difference if this:
+- `zlog*.txt` files:
+  - Basic output from the machines' showing the beginning input tape and tape after execution
+- `zouput*.txt`
+  - All text I print from standard output. Meaning each step from the machines' execution is written here
 
 ## State tables for each machine
 ### One's Complement
@@ -73,3 +89,10 @@ Simply change the path to any text file you like. Of course, these can be combin
 | CHECKZERO   | RETURNSTART,b,L | FAILSTATE,1,L   | ENDSTATE,b,L    |
 | CHECKONE    | FAILSTATE,0,L   | RETURNSTART,b,L | ENDSTATE,b,L    |
 | RETURNSTART | RETURNSTART,0,L | RETURNSTATE,1,L | SEARCHSTATE,b,R |
+
+### Divisible By Three
+|             | 0               | 1               | b              |
+|-------------|-----------------|-----------------|----------------|
+| REMAINZERO  | REMAINZERO,0,R  | REMAINONE,1,R   | ENDSTATE,b,L   |
+| REMAINONE   | REMAINTWO,0,R   | REMAINZERO,1,R  | FAILSTATE,b,L  |
+| REMAINTWO   | REMAINONE,0,R   | REMAINTWO,1,R   | FAILSTATE,b,L  |
